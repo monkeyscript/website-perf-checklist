@@ -44,14 +44,28 @@
 ```
 
 #### Avoid URL redirects
+```
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www.example.com [NC]
+RewriteRule (.*)$ http://example.com/$1 [R=301,L]
+```
 
 #### Reduce DNS lookups
 
+Built over time by domain authority and other factors.
+
 #### Make fewer HTTP requests
+
+Reduce number of files i.e. combine css, js etc.
 
 #### Avoid empty src or href
 
+Avoid `<video poster="">`, `<script src="">` etc.
+
 #### Minify HTML, CSS and JS
+
+Minify all files thus reducing file size.
 
 #### Specify image dimensions
 ```
@@ -59,6 +73,8 @@
 ```
 
 #### Avoid bad requests
+
+Ensure all requests have a proper response and does not yield 404 or 410 status codes.
 
 #### Defer parsing of JavaScript
 ```
@@ -78,13 +94,23 @@
 
 #### Use a CDN
 
+Content delivery networks are faster for loading styles and scripts.
+
 #### Make AJAX cacheable
 
-#### Remove duplicate CSS and JS
+Make use of Cache-Control and Future-Expire headers.
+
+#### Remove duplicate or unused CSS and JS
+
+Remove unwanted and duplicate code in styles and scripts.
 
 #### Reduce the number of DOM elements
 
+A complex page means more bytes to download, and it also means slower DOM access in JavaScript.
+
 #### Use cookie free domains
+
+Try to avoid use of cookies. If you are using them, remember to set a cookie policy.
 
 #### Enable keep-alive
 ```
@@ -94,6 +120,8 @@
 ```
 
 #### Inline small CSS and JS
+
+Use class and scripts.
 
 #### Minimize redirects
 
@@ -129,6 +157,14 @@ AddType 'text/html; charset=UTF-8' html
 
 #### Avoid a character set in meta tag
 
+Avoid `<meta http-equiv="content-type" content="text/html;charset=UTF-8">`
+
+and use the below in .htaccess,
+
+```
+AddType 'text/html; charset=UTF-8' html
+```
+
 #### Specify a Vary:Accept-Encoding header
 ```
 <IfModule mod_headers.c>
@@ -140,17 +176,27 @@ AddType 'text/html; charset=UTF-8' html
 
 #### Use GET for AJAX requests
 
+Avoid POST calls.
+
 #### Avoid CSS expressions
+
+Remove expression like `color: expression( condition ? "black" : "white" );`
 
 #### Reduce cookie size
 
+Minimize their size small as posible to avoid large request headers.
+
 #### Make favicon small and cacheable
+
+```
+<filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+    Header set Cache-Control "max-age=84600, public"
+</filesMatch>
+```
 
 #### Make CSS and JS external
 
 #### Eliminate render blocking resources
-
-#### Remove unused CSS
 
 #### Minimize main thread work
 
