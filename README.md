@@ -203,3 +203,7 @@ Minimize their size small as posible to avoid large request headers.
 #### Reduce JS execution time
 
 #### Defer offscreen images
+
+#### Include robots.txt file
+
+#### Include sitemap
