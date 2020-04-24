@@ -1,6 +1,11 @@
 # Website Performance Checklist
 
-#### Compress components with gzip
+The tolerance of people for poor experience is declining over time and most of them will bounce from your website if it doesn't load in the first few seconds. Below are few measures that can increase the performance of your website.
+
+### 1. Compress components with gzip
+
+Include the following lines in your `.htaccess` file.
+
 ```
 <ifModule mod_gzip.c>
     mod_gzip_on Yes
@@ -14,7 +19,10 @@
 </ifModule>
 ```
 
-#### Add expire headers (Browser caching)
+### 2. Add expire headers (Browser caching)
+
+Include the following lines in your `.htaccess` file.
+
 ```
 <IfModule mod_expires.c>
   ExpiresActive On
@@ -43,7 +51,10 @@
 </IfModule>
 ```
 
-#### Avoid URL redirects
+### 3. Avoid URL redirects
+
+Include the following lines in your `.htaccess` file.
+
 ```
 RewriteEngine On
 
@@ -51,32 +62,38 @@ RewriteCond %{HTTP_HOST} ^www.example.com [NC]
 RewriteRule (.*)$ http://example.com/$1 [R=301,L]
 ```
 
-#### Reduce DNS lookups
+### 4. Reduce DNS lookups
 
 Built over time by domain authority and other factors.
 
-#### Make fewer HTTP requests
+### 5. Make fewer HTTP requests
 
 Reduce number of files i.e. combine css, js etc.
 
-#### Avoid empty src or href
+### 6. Avoid empty src or href
 
 Avoid `<video poster="">`, `<script src="">` etc.
 
-#### Minify HTML, CSS and JS
+### 7. Minify HTML, CSS and JS
 
 Minify all files thus reducing file size.
 
-#### Specify image dimensions
+### 8. Specify image dimensions
+
+Include height and weight of images.
+
 ```
 <img src="image.jpg" width="200" height="200" />
 ```
 
-#### Avoid bad requests
+### 9. Avoid bad requests
 
 Ensure all requests have a proper response and does not yield 404 or 410 status codes.
 
-#### Defer parsing of JavaScript
+### 10. Defer parsing of JavaScript
+
+Javascript parsing will block all other process. Therefore a bulk code can slow down the rendering. Use the following code to delay the parsing.
+
 ```
 <script type="text/javascript">
     function downloadJSAtOnload() {
@@ -92,80 +109,88 @@ Ensure all requests have a proper response and does not yield 404 or 410 status 
 </script>
 ```
 
-#### Use a CDN
+### 11. Use a CDN
 
 Content delivery networks are faster for loading styles and scripts.
 
-#### Make AJAX cacheable
+### 12. Make AJAX cacheable
 
 Make use of Cache-Control and Future-Expire headers.
 
-#### Remove duplicate or unused CSS and JS
+### 13. Remove duplicate or unused CSS and JS
 
 Remove unwanted and duplicate code in styles and scripts.
 
-#### Reduce the number of DOM elements
+### 14. Reduce the number of DOM elements
 
 A complex page means more bytes to download, and it also means slower DOM access in JavaScript.
 
-#### Use cookie free domains
+### 15. Use cookie free domains
 
 Try to avoid use of cookies. If you are using them, remember to set a cookie policy.
 
-#### Enable keep-alive
+### 16. Enable keep-alive
+
+Include the following lines in your `.htaccess` file.
+
 ```
 <IfModule mod_headers.c>
     Header set Connection keep-alive
 </IfModule>
 ```
 
-#### Inline small CSS and JS
+### 17. Inline small CSS and JS
 
 Use class and scripts.
 
-#### Minimize redirects
+### 18. Optimize images
 
-#### Minimize request size
+Images size should be optimal. A high resolution image is sometimes unnecessary.
 
-#### Optimize images
+### 19. Optimize the order of styles and scripts
 
-#### Optimize the order of styles and scripts
+Relevant stylesheets should be loaded first. Scripts can be loaded at the bottom.
 
-#### Put CSS in the document head
+### 20. Serve resources from a consistent URL
 
-#### Serve resources from a consistent URL
+If you are using CDN, make sure they're reliable.
 
-#### Serve scaled images
+### 21. Serve scaled images
 
-#### Specify a cache validator
+Scale images from server side to specifed dimension to avoid delay.
+
+### 22. Specify a cache validator
+
+Include the following lines in your `.htaccess` file.
+
 ```
 <filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
     Header set Cache-Control "max-age=604800, public"
 </filesMatch>
 ```
 
-#### Combine images using CSS sprites
+### 23. Combine images using CSS sprites
 
-#### Avoid CSS @imports
+### 24. Avoid CSS @imports
 
-#### Prefer asynchronous resources
+### 25. Prefer asynchronous resources
 
-#### Specify a character set early
+### 26. Specify a character set early
+
+Include the following lines in your `.htaccess` file. 
+
 ```
 AddType 'text/html; charset=UTF-8' html
 ```
 
-#### Avoid a character set in meta tag
+And avoid character set in meta tag.
 
 Avoid `<meta http-equiv="content-type" content="text/html;charset=UTF-8">`
 
-and use the below in .htaccess,
+### 27. Specify a Vary:Accept-Encoding header
 
-```
-AddType 'text/html; charset=UTF-8' html
-```
+Include the following lines in your `.htaccess` file. 
 
-#### Specify a Vary:Accept-Encoding header
 ```
 <IfModule mod_headers.c>
   <FilesMatch ".(js|css|xml|gz|html)$">
@@ -174,19 +199,21 @@ AddType 'text/html; charset=UTF-8' html
 </IfModule>
 ```
 
-#### Use GET for AJAX requests
+### 28. Use GET for AJAX requests
 
 Avoid POST calls.
 
-#### Avoid CSS expressions
+### 29. Avoid CSS expressions
 
 Remove expression like `color: expression( condition ? "black" : "white" );`
 
-#### Reduce cookie size
+### 30. Reduce cookie size
 
 Minimize their size small as posible to avoid large request headers.
 
-#### Make favicon small and cacheable
+### 31. Make favicon small and cacheable
+
+Include the following lines in your `.htaccess` file. 
 
 ```
 <filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
@@ -194,16 +221,22 @@ Minimize their size small as posible to avoid large request headers.
 </filesMatch>
 ```
 
-#### Make CSS and JS external
+### 32. Make CSS and JS external
 
-#### Eliminate render blocking resources
+### 33. Eliminate render blocking resources
 
-#### Minimize main thread work
+### 34. Minimize main thread work
 
-#### Reduce JS execution time
+### 35. Reduce JS execution time
 
-#### Defer offscreen images
+### 36. Defer offscreen images
 
-#### Include robots.txt file
+Load them once the initial loading is complete.
 
-#### Include sitemap
+### 37. Include robots.txt file
+
+Include a robots.txt file.
+
+### 38. Include sitemap
+
+Include a sitemap file.
