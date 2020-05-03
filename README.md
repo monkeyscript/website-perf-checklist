@@ -171,9 +171,15 @@ Include the following lines in your `.htaccess` file.
 
 ### 23. Combine images using CSS sprites
 
+Sprites are two-dimensional images which are made up of combining small images into one larger image at defined X and Y coordinates.
+
 ### 24. Avoid CSS @imports
 
+Imports blocks parellel loading and reduce load speed.
+
 ### 25. Prefer asynchronous resources
+
+Parellel or async loading reduce load time.
 
 ### 26. Specify a character set early
 
@@ -222,6 +228,8 @@ Include the following lines in your `.htaccess` file.
 ```
 
 ### 32. Make CSS and JS external
+
+Remove inline css and use external CSS files.
 
 ### 33. Eliminate render blocking resources
 
