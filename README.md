@@ -240,3 +240,11 @@ Include a robots.txt file.
 ### 38. Include sitemap
 
 Include a sitemap file.
+
+### 39. Use proper URL
+
+Try to include a keyword in URL and avoid self-generated ugly URLs.
+
+### 40. Proper heading hierarchy
+
+Only one h1 per page. Two or three h2 and so on.
