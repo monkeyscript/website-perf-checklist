@@ -4,7 +4,7 @@ The tolerance of people for poor experience is declining over time and most of t
 
 ### 1. Compress components with gzip
 
-Include the following lines in your `.htaccess` file.
+Include the following lines in your `.htaccess` file. Make sure your hosting service has support for compression.
 
 ```
 <ifModule mod_gzip.c>
@@ -21,7 +21,7 @@ Include the following lines in your `.htaccess` file.
 
 ### 2. Add expire headers (Browser caching)
 
-Include the following lines in your `.htaccess` file.
+Include the following lines in your `.htaccess` file. This will enable caching of our page assets in browsers for the specified time interval.
 
 ```
 <IfModule mod_expires.c>
@@ -53,7 +53,7 @@ Include the following lines in your `.htaccess` file.
 
 ### 3. Avoid URL redirects
 
-Include the following lines in your `.htaccess` file.
+Include the following lines in your `.htaccess` file. 
 
 ```
 RewriteEngine On
