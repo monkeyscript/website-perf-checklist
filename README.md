@@ -256,3 +256,5 @@ Try to include a keyword in URL and avoid self-generated ugly URLs.
 ### 40. Proper heading hierarchy
 
 Only one h1 per page. Two or three h2 and so on.
+
+### 41. Configure ET tags
