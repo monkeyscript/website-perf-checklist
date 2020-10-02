@@ -243,8 +243,27 @@ Load them once the initial loading is complete.
 
 ### 37. Include robots.txt file
 
-Include a robots.txt file.
+Include a robots.txt file in the root folder.
 
+A robots.txt file is a basic text file which is consulted by *most* web crawlers when crawling your site. The idea is, that your robots.txt file will add some other files/sections of your website as *Robots Excluded*.
+The web crawlers won't check those sections of your website you mentioned.
+
+A usual robots.txt file would have something like
+
+```
+User-agent: *
+Disallow: /admin
+
+Sitemap: https://www.yourwebsite.domain/sitemap.xml
+```
+
+Here, the `user-agent: *` means, the rules apply for all web crawlers.
+The `Disallow: /admin` means "Do not scrape the /admin section of the website"
+The `sitemap:` shows the bot where the sitemap of your website can be found so that the crawler can optimize it's search.
+
+This is a recommended idea to exclude parts of your website you **Do not want indexed by search engines** in your robots.txt file. That could be your admin areas or maybe content marked as *unlisted* which shouldn't pop up in search engines.
+
+You can read more about robots.txt standards [here](https://developers.google.com/search/reference/robots_txt).
 ### 38. Include sitemap
 
 Include a sitemap file.
