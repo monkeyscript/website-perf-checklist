@@ -308,4 +308,3 @@ Speeding Up a Dedicated Server
 # Disable unnecessary PHP extensions and fine tune memory use and other settings in the php.ini file.
 # Optimize your files and reuse as much as possible to leverage browser storage.
 CSS first, JavaScript last.
-# Don’t have the time to perform these tasks or prefer to focus on what you do best and run your business? Let our level 3 techs handle these tasks for you with our server management services. Our servers are ideal for high speed environments and we utilize high quality upstream providers to compliment a well optimized server.
