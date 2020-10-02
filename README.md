@@ -258,3 +258,54 @@ Try to include a keyword in URL and avoid self-generated ugly URLs.
 Only one h1 per page. Two or three h2 and so on.
 
 ### 41. Configure ET tags
+
+
+### 42.From reducing bottlenecks to getting the most website speed out of your dedicated server, these tips will put you on track for a fast environment.
+
+
+### 43. Optimize MySQL
+Databases tend to get larger as your website grows, and queries take longer to execute due to vast amounts of data being stored. You’ll want to tweak your MySQL settings to increase overall speed of your database server, and take advantage of indexes to reduce the time a query needs to run. A properly configured my.cnf file will also go a long way when optimizing your MySQL server. For most servers, MySQL tends to be the biggest bottleneck; so you’ll want to place a lot of focus improving the reliability and speed of your MySQL queries.
+
+Index frequently accessed data. When you know a table is going to be accessed a lot, it’s best to create the index as soon as you create the table. Tables that store a lot of information will benefit from indexes because it will speed up the time to perform queries when the data needs to be retrieved. The following example is how you create an indexed table for people storing their name, date of birth, and a unique ID.
+```
+CREATE TABLE people (
+name VARCHAR(32),
+dob DATE,
+unique INT, INDEX (id)
+)
+```
+
+Creating indexes can be done during the table’s creation, or after the table is created. It can also be managed through PHP while generating new unique tables that will be accessed frequently. To add an index to an existing table, the following would be used.
+```
+ALTER TABLE people (
+ADD INDEX id(unique),
+ADD INDEX name(name);
+)
+```
+
+These methods are very simple, and large tables should always be indexed when there’re a lot of requests to retrieve data.
+
+Consider modifying the default my.cnf file often located in /etc/my.cnf. Don’t forget to make a backup. Each configuration will be unique to each distribution, so read up on MySQL and find the best settings for your server. If you have dedicated server management with us, our level 3 techs will give you the best configuration for your server. Tell us about your environment, and submit a ticket and let us speed up your server’s performance.
+
+### 44.Optimize PHP & Apache
+Apache and PHP are both highly scalable in most environments, and are very powerful options to consider when deploying a dedicated server; however they both come with most modules and extensions enabled by default. You’ll want to fine tune your configuration to get the most speed out of your server, so you’ll have to make a few changes to your setup.
+
+If you don’t need PHP and plan on serving mostly static pages, you can safely remove PHP from your configuration altogether. If however you do plan on running PHP scripts on your server, consider disabling unnecessary extensions by commenting them out in your php.ini or removing them from PHP entirely. There’re also many PHP extensions intended for speeding up the performance of PHP. Each has it’s own user case and may require certain functions to be called during execution, so research what works best for you. Caching and code optimizers should be options you would want to implement in your distribution. Don’t forget to configure the memory settings in your php.ini file as that will yield a substantial amount of benefits if you have, or are expecting heavy traffic.
+
+When tuning Apache, you’ll want to pay attention to a few settings. KeepAlive, and MaxClients in particular. These options are situational to your web server so find some resources on the Apache Website. Tweaking one setting could substantially increase the speed of your server.
+
+### tip 45.KeepAlive: Allows clients to reuse the same connection to facilitate the transfer of multiple files.
+Note: KeepAlive comes with increased memory use.
+MaxClients: Determines the maximum number of concurrent clients / connections that Apache will serve.
+Note: MaxClients comes with the risk of Syn Floods if set too high..
+A good PHP configuration and well tuned Apache configuration will result in a very fast dedicated server. There’re many settings to go over which are out of the scope of this article, so read a little bit about Apache and PHP to get a solid understanding, or look into our server management and let us handle the hard work for you.
+
+Speeding Up a Dedicated Server
+### summary::To summarize, make your site run faster with these tips:
+
+# Optimize MySQL, and don’t forget the indexes!
+# Each Apache configuration will be unique to every deployment.
+# Disable unnecessary PHP extensions and fine tune memory use and other settings in the php.ini file.
+# Optimize your files and reuse as much as possible to leverage browser storage.
+CSS first, JavaScript last.
+# Don’t have the time to perform these tasks or prefer to focus on what you do best and run your business? Let our level 3 techs handle these tasks for you with our server management services. Our servers are ideal for high speed environments and we utilize high quality upstream providers to compliment a well optimized server.
