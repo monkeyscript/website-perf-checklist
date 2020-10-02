@@ -264,6 +264,7 @@ The `sitemap:` shows the bot where the sitemap of your website can be found so t
 This is a recommended idea to exclude parts of your website you **Do not want indexed by search engines** in your robots.txt file. That could be your admin areas or maybe content marked as *unlisted* which shouldn't pop up in search engines.
 
 You can read more about robots.txt standards [here](https://developers.google.com/search/reference/robots_txt).
+
 ### 38. Include sitemap
 
 Include a sitemap file.
