@@ -259,8 +259,32 @@ The `sitemap:` shows the bot where the sitemap of your website can be found so t
 
 ### 38. Include sitemap
 
-Include a sitemap file.
+A sitemap file is a XML file that lists all the webpages of your site (i.e the URLs of the pages) along with additional metadata about each URL (the time of last update, how often the page is usually changed, how much is the priority of the page relative to other pages in the website etc.). The sitemap file is pretty much helpful, since webcrawlers can crawl and index your pages more efficiently, thus providing a better job of crawling your site.
 
+A general sitemap file would have the following structure 
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+   <url>
+
+      <loc>http://www.example.com/</loc>
+
+      <lastmod>2020-01-01</lastmod>
+
+      <changefreq>monthly</changefreq>
+
+      <priority>0.8</priority>
+
+   </url>
+
+</urlset> 
+
+```
+
+Where, `<urlset>` encapsulates the file and references the current protocol standard. `<url>` is the parent tag for each URL entry. `<loc>` contains the URL of the page. This URL must begin with the protocol (such as http) and end with a trailing slash, if your web server requires it. This value must be less than 2,048 characters. `<lastmod>` contains information about the last modification of your file, which should be in **W3C Datetime** format. `<changefreq>` indicates how frequently the page is likely to change. `<priority>` points out the priority of this URL relative to other URLs on your site. Valid values range from 0.0 to 1.0. This value does not affect how your pages are compared to pages on other sites—it only lets the search engines know which pages you deem most important for the crawlers.
+  
 ### 39. Use proper URL
 
 Try to include a keyword in URL and avoid self-generated ugly URLs.
