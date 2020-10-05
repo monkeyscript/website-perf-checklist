@@ -175,8 +175,24 @@ Sprites are two-dimensional images which are made up of combining small images i
 
 ### 24. Avoid CSS @imports
 
-Imports blocks parellel loading and reduce load speed.
+Imports blocks parellel loading and reduce load speed. Instead, use link tags.
 
+If you have
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+```
+
+Replace them with link tags in your HTML file.
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
+```
+
+And then use them in the CSS as 
+```css
+font-family: 'Roboto', sans-serif;
+```
 ### 25. Prefer asynchronous resources
 
 Parellel or async loading reduce load time.
