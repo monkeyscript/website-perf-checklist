@@ -303,7 +303,25 @@ Where, `<urlset>` encapsulates the file and references the current protocol stan
   
 ### 39. Use proper URL
 
-Try to include a keyword in URL and avoid self-generated ugly URLs.
+A URL(Uniform Resource Locator), that is more commonly known as *web adress* specifies the location of resources (for example, a webpage) on internet. It is a human readable text that was designed with an intention to replace the IP adresses that computers use to communicate with server. They also identify the file structure on the given website.
+A URL consists of a protocol, domain name, and path (which includes the specific subfolder structure where a page is located) and has the following basic format:
+
+`protocol://domain-name.top-level-domain/path`
+
+The `protocol:` could be  `http:` or `https:` (the "s" stands for "secure"), but it may also include things like `mailto:` (to open your default mail client) or `ftp:` (to handle file transfers). 
+The `domain-name` or `host-name` is the human readable name of the location where the resource (in most cases, a website) is located.
+The `top-level-domain` or simply, TLD is like a category of websites. There are different types of TLDs, like `.com`, `.net`, `.tech`, `.gov`, `.edu`, `.org` - all used according to the type of the corresponding webpage.
+
+To have a proper URL, you have to keep the following points in mind - 
+
+**1**. Keep it simple and consistent.
+**2**. Keep it organized.
+**3**. Use the right key-word/s.
+**4**. Keep it trustworthy.
+
+Keeping URLs as simple, relevant, compelling, and accurate as possible is key to getting both your users and search engines to understand them (a prerequisite to ranking well). Although URLs can include ID numbers and codes, the best practice is to use words that people can comprehend. Also keep in mind that, URLs should be definitive but concise. By seeing only the URL, a user (and search engine too!) should have a good idea of what to expect on the page. 
+
+And say a big NO to self generating ugly URLs!
 
 ### 40. Proper heading hierarchy
 
