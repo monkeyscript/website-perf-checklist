@@ -2,6 +2,8 @@
 
 The tolerance of people for poor experience is declining over time and most of them will bounce from your website if it doesn't load in the first few seconds. Below are few measures that can increase the performance of your website.
 
+<br>
+
 ### 1. Compress components with gzip
 
 If your hosting provider has mod_gzip module enabled, the best way to compress your content is to add the following lines to your `.htaccess` file:
@@ -203,3 +205,17 @@ A robots.txt file tells search engine crawlers which URLs the crawler can access
 ### 24. Include sitemap
 
 A sitemap is a file where you provide information about the pages, videos, and other files on your site, and the relationships between them. Search engines like Google read this file to crawl your site more efficiently. A sitemap tells Google which pages and files you think are important in your site, and also provides valuable information about these files. For example, when the page was last updated and any alternate language versions of the page.
+
+<br>
+
+### Finally,
+___
+
+Once you're done with optimizations, head over to the below tools to test your website. They will analyze the web page and gives you a detailed report along with improvement opportunities.
+
+- https://tools.pingdom.com/
+- https://gtmetrix.com/
+- https://developers.google.com/speed/pagespeed/insights/
+- https://www.webpagetest.org/
+- https://www.dareboost.com/en
+- https://www.dotcom-tools.com/website-speed-test
