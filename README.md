@@ -4,7 +4,7 @@ The tolerance of people for poor experience is declining over time and most of t
 
 ### 1. Compress components with gzip
 
-Include the following lines in your `.htaccess` file. Make sure your hosting service has support for compression.
+If your hosting provider has mod_gzip module enabled, the best way to compress your content is to add the following lines to your `.htaccess` file:
 
 ```
 <ifModule mod_gzip.c>
@@ -19,9 +19,11 @@ Include the following lines in your `.htaccess` file. Make sure your hosting ser
 </ifModule>
 ```
 
-### 2. Add expire headers (Browser caching)
+Or use Gzip, a software application for file compression, to reduce the size of your CSS, HTML, and JavaScript files that are larger than 150 bytes.
 
-Include the following lines in your `.htaccess` file. This will enable caching of our page assets in browsers for the specified time interval.
+### 2. Add expire headers
+
+Simply download the `.htaccess file` from the root of your host (it may be hidden) and add the code below:
 
 ```
 <IfModule mod_expires.c>
@@ -62,23 +64,22 @@ RewriteCond %{HTTP_HOST} ^www.example.com [NC]
 RewriteRule (.*)$ http://example.com/$1 [R=301,L]
 ```
 
-### 4. Reduce DNS lookups
+### 4. Make fewer HTTP requests
 
-Built over time by domain authority and other factors.
+- Combine CSS/JS files into a single file.
+- Remove unnecessary plug-ins.
+- Remove assets you do not need
+- Enable lazy load
 
-### 5. Make fewer HTTP requests
-
-Reduce number of files i.e. combine css, js etc.
-
-### 6. Avoid empty src or href
+### 5. Avoid empty src or href
 
 Avoid `<video poster="">`, `<script src="">` etc.
 
-### 7. Minify HTML, CSS and JS
+### 6. Minify HTML, CSS and JS
 
-Minify all files thus reducing file size.
+To minify JS, CSS and HTML files, comments and extra spaces need to be removed, as well as crunch variable names so as to minimize code and reduce file size. The minified file version provides the same functionality while reducing the bandwidth of network requests.
 
-### 8. Specify image dimensions
+### 7. Specify image dimensions
 
 Include height and weight of images.
 
@@ -86,11 +87,11 @@ Include height and weight of images.
 <img src="image.jpg" width="200" height="200" />
 ```
 
-### 9. Avoid bad requests
+### 8. Handle bad requests
 
 Ensure all requests have a proper response and does not yield 404 or 410 status codes.
 
-### 10. Defer parsing of JavaScript
+### 9. Defer parsing of JavaScript
 
 Javascript parsing will block all other process. Therefore a bulk code can slow down the rendering. Use the following code to delay the parsing.
 
@@ -109,27 +110,23 @@ Javascript parsing will block all other process. Therefore a bulk code can slow 
 </script>
 ```
 
-### 11. Use a CDN
+### 10. Use a CDN
 
 Content delivery networks are faster for loading styles and scripts.
 
-### 12. Make AJAX cacheable
-
-Make use of Cache-Control and Future-Expire headers.
-
-### 13. Remove duplicate or unused CSS and JS
+### 11. Remove duplicate or unused CSS and JS
 
 Remove unwanted and duplicate code in styles and scripts.
 
-### 14. Reduce the number of DOM elements
+### 12. Reduce the number of DOM elements
 
 A complex page means more bytes to download, and it also means slower DOM access in JavaScript.
 
-### 15. Use cookie free domains
+### 13. Use cookie free domains
 
 Try to avoid use of cookies. If you are using them, remember to set a cookie policy.
 
-### 16. Enable keep-alive
+### 14. Enable keep-alive
 
 Include the following lines in your `.htaccess` file.
 
@@ -139,65 +136,39 @@ Include the following lines in your `.htaccess` file.
 </IfModule>
 ```
 
-### 17. Inline small CSS and JS
+### 15. Avoid inline CSS and JS
 
 Use class and scripts.
 
-### 18. Optimize images
+### 16. Optimize images
 
 Images size should be optimal. A high resolution image is sometimes unnecessary.
 
-### 19. Optimize the order of styles and scripts
+### 17. Optimize the order of styles and scripts
 
 Relevant stylesheets should be loaded first. Scripts can be loaded at the bottom.
 
-### 20. Serve resources from a consistent URL
+### 18. Combine images using CSS sprites
 
-If you are using CDN, make sure they're reliable.
+CSS sprites technique is a way to reduce the number of HTTP requests made for image resources, by combining images in a single file.
 
-### 21. Serve scaled images
-
-Scale images from server side to specifed dimension to avoid delay.
-
-### 22. Specify a cache validator
-
-Include the following lines in your `.htaccess` file.
-
-```
-<filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
-    Header set Cache-Control "max-age=604800, public"
-</filesMatch>
-```
-
-### 23. Combine images using CSS sprites
-
-Sprites are two-dimensional images which are made up of combining small images into one larger image at defined X and Y coordinates.
-
-### 24. Avoid CSS @imports
+### 19. Avoid CSS @imports
 
 Imports blocks parellel loading and reduce load speed. Instead, use link tags.
 
-If you have
+Replace,
 
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 ```
 
-Replace them with link tags in your HTML file.
+with,
 
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
 ```
 
-And then use them in the CSS as 
-```css
-font-family: 'Roboto', sans-serif;
-```
-### 25. Prefer asynchronous resources
-
-Parellel or async loading reduce load time.
-
-### 26. Specify a character set early
+### 20. Specify a character set early
 
 Include the following lines in your `.htaccess` file. 
 
@@ -207,9 +178,9 @@ AddType 'text/html; charset=UTF-8' html
 
 And avoid character set in meta tag.
 
-Avoid `<meta http-equiv="content-type" content="text/html;charset=UTF-8">`
+Remove `<meta http-equiv="content-type" content="text/html;charset=UTF-8">`
 
-### 27. Specify a Vary:Accept-Encoding header
+### 21. Specify a Vary:Accept-Encoding header
 
 Include the following lines in your `.htaccess` file. 
 
@@ -221,110 +192,14 @@ Include the following lines in your `.htaccess` file.
 </IfModule>
 ```
 
-### 28. Use GET for AJAX requests
+### 22. Reduce CSS expressions
 
-Avoid POST calls.
+Avoid expressions like `color: expression( condition ? "black" : "white" );`
 
-### 29. Avoid CSS expressions
+### 23. Include robots.txt
 
-Remove expression like `color: expression( condition ? "black" : "white" );`
+A robots.txt file tells search engine crawlers which URLs the crawler can access on your site. This is used mainly to avoid overloading your site with requests; it is not a mechanism for keeping a web page out of Google.
 
-### 30. Reduce cookie size
+### 24. Include sitemap
 
-Minimize their size small as posible to avoid large request headers.
-
-### 31. Make favicon small and cacheable
-
-Include the following lines in your `.htaccess` file. 
-
-```
-<filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
-    Header set Cache-Control "max-age=84600, public"
-</filesMatch>
-```
-
-### 32. Make CSS and JS external
-
-Remove inline css and use external CSS files.
-
-### 33. Eliminate render blocking resources
-
-### 34. Minimize main thread work
-
-### 35. Reduce JS execution time
-
-### 36. Defer offscreen images
-
-Load them once the initial loading is complete.
-
-### 37. Include robots.txt file
-
-A robots.txt file is a basic text file which is consulted by most web crawlers when crawling your site. The idea is, that your robots.txt file will add some other files/sections of your website as *Robots Excluded*. The web crawlers won't check those sections of your website you mentioned.
-
-A usual robots.txt file would have something like
-```
-User-agent: *
-Disallow: /admin
-
-Sitemap: https://www.yourwebsite.domain/sitemap.xml
-```
-
-Here, the `user-agent: *` means, the rules apply for all web crawlers.
-The `Disallow: /admin` means _Do not scrape the /admin section of the website_.
-The `sitemap:` shows the bot where the sitemap of your website can be found so that the crawler can optimize it's search.
-
-### 38. Include sitemap
-
-A sitemap file is a XML file that lists all the webpages of your site (i.e the URLs of the pages) along with additional metadata about each URL (the time of last update, how often the page is usually changed, how much is the priority of the page relative to other pages in the website etc.). The sitemap file is pretty much helpful, since webcrawlers can crawl and index your pages more efficiently, thus providing a better job of crawling your site.
-
-A general sitemap file would have the following structure 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-   <url>
-
-      <loc>http://www.example.com/</loc>
-
-      <lastmod>2020-01-01</lastmod>
-
-      <changefreq>monthly</changefreq>
-
-      <priority>0.8</priority>
-
-   </url>
-
-</urlset> 
-
-```
-
-Where, `<urlset>` encapsulates the file and references the current protocol standard. `<url>` is the parent tag for each URL entry. `<loc>` contains the URL of the page. This URL must begin with the protocol (such as http) and end with a trailing slash, if your web server requires it. This value must be less than 2,048 characters. `<lastmod>` contains information about the last modification of your file, which should be in **W3C Datetime** format. `<changefreq>` indicates how frequently the page is likely to change. `<priority>` points out the priority of this URL relative to other URLs on your site. Valid values range from 0.0 to 1.0. This value does not affect how your pages are compared to pages on other sites—it only lets the search engines know which pages you deem most important for the crawlers.
-  
-### 39. Use proper URL
-
-A URL(Uniform Resource Locator), that is more commonly known as *web adress* specifies the location of resources (for example, a webpage) on internet. It is a human readable text that was designed with an intention to replace the IP adresses that computers use to communicate with server. They also identify the file structure on the given website.
-A URL consists of a protocol, domain name, and path (which includes the specific subfolder structure where a page is located) and has the following basic format:
-
-`protocol://domain-name.top-level-domain/path`
-
-The `protocol:` could be  `http:` or `https:` (the "s" stands for "secure"), but it may also include things like `mailto:` (to open your default mail client) or `ftp:` (to handle file transfers). 
-The `domain-name` or `host-name` is the human readable name of the location where the resource (in most cases, a website) is located.
-The `top-level-domain` or simply, TLD is like a category of websites. There are different types of TLDs, like `.com`, `.net`, `.tech`, `.gov`, `.edu`, `.org` - all used according to the type of the corresponding webpage.
-
-To have a proper URL, you have to keep the following points in mind - 
-
-**1**. Keep it simple and consistent.
-**2**. Keep it organized.
-**3**. Use the right key-word/s.
-**4**. Keep it trustworthy.
-
-Keeping URLs as simple, relevant, compelling, and accurate as possible is key to getting both your users and search engines to understand them (a prerequisite to ranking well). Although URLs can include ID numbers and codes, the best practice is to use words that people can comprehend. Also keep in mind that, URLs should be definitive but concise. By seeing only the URL, a user (and search engine too!) should have a good idea of what to expect on the page. 
-
-And say a big NO to self generating ugly URLs!
-
-### 40. Proper heading hierarchy
-
-Only one h1 per page. Two or three h2 and so on.
-
-### 41. Configure ET tags
+A sitemap is a file where you provide information about the pages, videos, and other files on your site, and the relationships between them. Search engines like Google read this file to crawl your site more efficiently. A sitemap tells Google which pages and files you think are important in your site, and also provides valuable information about these files. For example, when the page was last updated and any alternate language versions of the page.
