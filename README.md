@@ -219,3 +219,5 @@ Once you're done with optimizations, head over to the below tools to test your w
 - https://www.webpagetest.org/
 - https://www.dareboost.com/en
 - https://www.dotcom-tools.com/website-speed-test
+- https://www.seobility.net/en/seocheck/
+- https://www.git-tower.com/blog/seo-for-developers/
