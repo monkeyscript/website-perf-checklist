@@ -144,7 +144,7 @@ Use class and scripts.
 
 ### 16. Optimize images
 
-Images size should be optimal. A high resolution image is sometimes unnecessary.
+Images size should be optimal. A high resolution image is sometimes unnecessary. Use proper image file formats.
 
 ### 17. Optimize the order of styles and scripts
 
@@ -205,6 +205,14 @@ A robots.txt file tells search engine crawlers which URLs the crawler can access
 ### 24. Include sitemap
 
 A sitemap is a file where you provide information about the pages, videos, and other files on your site, and the relationships between them. Search engines like Google read this file to crawl your site more efficiently. A sitemap tells Google which pages and files you think are important in your site, and also provides valuable information about these files. For example, when the page was last updated and any alternate language versions of the page.
+
+### 25. Choose fewer fonts
+
+While web fonts can help your site stand out from the crowd, they can also negatively impact performance, especially if they’re uncommon or require unique character sets. To maximize page loading speed, use the fewest number of fonts possible, and focus on fonts that are optimized for speed. 
+
+### 26. Eliminate unnecessary plugins
+
+Plugins like Google Analytics provide valuable information but can slow down page load time. These tools usually work by having you enter a JavaScript snippet somewhere in your website code (commonly in the header section), and when a user visits your page they need to collect this remote file before the page is fully loaded. Having too many plugins on your site can cause unnecessary bloat that slows it down. Additionally, plugins that are outdated or aren't well maintained can pose a security threat, and even introduce compatibility issues that hamper performance.
 
 <br>
 
